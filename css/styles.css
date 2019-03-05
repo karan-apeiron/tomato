@@ -1,0 +1,49 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: lightskyblue;
+}
+
+.container {
+    width: 1200px;
+    margin: auto;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.container>.timer {
+    display: flex;
+    font-size: 10em;
+    color: orangered;
+}
+
+.container>.buttons {
+    display: flex;
+    padding: 10px;
+    margin: 20px;
+    justify-content: center;
+}
+
+.container>.buttons>button {
+    padding: 10px;
+    color: orangered;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.container>.notifications {
+    color: white;
+    display: flex;
+    justify-content: center;
+    display: none;
+}
+
+.container>.notifications>h2 {
+    font-size: 3em;
+}
