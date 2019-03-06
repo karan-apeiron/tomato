@@ -20,6 +20,7 @@ function startTimer(){
         seconds -= 1;
         if (parseInt(minutes) < 0) {
             clearInterval(timerIntrvlId);
+            return;
             //showNotification();
         }
         updateDisplay(minutes, seconds);
@@ -35,7 +36,7 @@ function updateDisplay(minutes, seconds) {
     secondsElem.textContent = paddleft(seconds);
 }
 function paddleft(value) {
-    if(value < 10) {
+    if(value.toString().length < 2) {
         return '0'+value;
     }
     else 

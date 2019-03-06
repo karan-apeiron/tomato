@@ -1,0 +1,23 @@
+{
+  "name": "tomato",
+  "version": "1.0.0",
+  "description": "a very simple pomodoro timer",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/karan-apeiron/tomato.git"
+  },
+  "keywords": [
+    "pomodoro",
+    "javascript"
+  ],
+  "author": "karan dhillon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/karan-apeiron/tomato/issues"
+  },
+  "homepage": "https://github.com/karan-apeiron/tomato#readme"
+}
