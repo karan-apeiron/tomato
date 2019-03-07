@@ -5,13 +5,23 @@ let seconds;
 let timerOn = false;
 let pause = false;
 let timerIntrvlId;
+let runningStatus = false;
+
+let startButton = document.querySelector('#start');
+let pauseButton = document.querySelector('#pause');
+let stopButton = document.querySelector('#stop');
+
 
 function initializeVariables() {
     minutes = document.querySelector('#minutes').textContent; 
     seconds = document.querySelector('#seconds').textContent;
 }
 function startTimer(){
+    if(runningStatus) 
+        return;
     initializeVariables();
+    if(timerIntrvlId) 
+        clearInterval(timerIntrvlId);
     timerIntrvlId = setInterval(() => {
         if (parseInt(seconds) === 0) {
             seconds = 60;
@@ -26,6 +36,8 @@ function startTimer(){
         updateDisplay(minutes, seconds);
     
     }, 1000);
+    runningStatus = true;
+    updateButtons();
 }
 
 startTimer();
@@ -50,9 +62,6 @@ function showNotification(message, timeout) {
 
 // event handlers
 
-let startButton = document.querySelector('#start');
-let pauseButton = document.querySelector('#pause');
-let stopButton = document.querySelector('#stop');
 
 startButton.addEventListener('click',(e) => {
     startTimer();
@@ -60,6 +69,8 @@ startButton.addEventListener('click',(e) => {
 
 pauseButton.addEventListener('click',(e) => {
     clearInterval(timerIntrvlId);
+    runningStatus = false;
+    updateButtons();
 });
 
 stopButton.addEventListener('click',(e) => {
@@ -68,3 +79,13 @@ stopButton.addEventListener('click',(e) => {
     secondsElem.textContent = paddleft(0);
 });
 
+function updateButtons() {
+    if(runningStatus) {
+        startButton.disabled = true;
+        pauseButton.disabled = false;
+    }
+    else{
+        startButton.disabled = false;
+        pauseButton.disabled = true;
+    }
+}
